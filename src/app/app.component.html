@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">
+        Welcome to {{ title }}!
+      </h1>
+      <br />
+      <h1 *ngIf="currentGold">
+        Total gold: {{ currentGold }}
+      </h1>
+      <h1 *ngIf="!currentGold">
+        Total gold: 0
+      </h1>
+    </div>
+  </div>
+
+  <div class="row stats-row">
+    <div class="col-md-3">
+      <div class="gold-box text-center">
+        <h3>Farm</h3>
+        <p>Earns 2-5 gold</p>
+        <button (click)="clickToFarm(userId, 0)" class="btn btn-success farm form-control">Farm!</button>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="gold-box text-center">
+        <h3>Cave</h3>
+        <p>Earns 5-10 gold</p>
+        <button (click)="clickToCave(userId, 0)" class="btn btn-success cave form-control">Cave!</button>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="gold-box text-center">
+        <h3>House</h3>
+        <p>Earns 7-15 gold</p>
+        <button (click)="clickToHouse(userId, 0)" class="btn btn-success house form-control">House!</button>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="gold-box text-center">
+        <h3>Casino</h3>
+        <p>Earns or lose up to 100 gold</p>
+        <button (click)="clickToCasino(userId, 0)" class="btn btn-success casino form-control">Casino!</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="adventure-log">
+        <h1>Adventure Log</h1>
+        <div *ngFor="let x of reversedLogs" class="logs">
+          <p>{{x}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
