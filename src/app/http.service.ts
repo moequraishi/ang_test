@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +8,16 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  newGame(num) {
-    return this.http.post('/newgame', num);
+  create(data) {
+    return this.http.post('/new', data);
   }
 
-  getGold() {
-    let tempObservable = this.http.get('/gold');
-    tempObservable.subscribe(data => console.log('Got gold: ', data));
+  get() {
+    return this.http.get('/notes');
   }
-  farm(data) {
-    return this.http.post('/farm', data);
+
+  // In case of false data only
+  delete(id) {
+    return this.http.post('/remove/' + id, false);
   }
 }

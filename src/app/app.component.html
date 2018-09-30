@@ -1,56 +1,29 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1 class="text-center">
-        Welcome to {{ title }}!
-      </h1>
+      <h1>{{title}}</h1>
       <br />
-      <h1 *ngIf="currentGold">
-        Total gold: {{ currentGold }}
-      </h1>
-      <h1 *ngIf="!currentGold">
-        Total gold: 0
-      </h1>
-    </div>
-  </div>
+      <div class="note-box">
+        <div class="msg" *ngIf="message">
+          <p>{{message}}</p>
+        </div>
+        <label for="note">Note:</label>
+        <input [(ngModel)]="note" required minlength="4" class="form-control" type="text" name="note" id="note">
 
-  <div class="row stats-row">
-    <div class="col-md-3">
-      <div class="gold-box text-center">
-        <h3>Farm</h3>
-        <p>Earns 2-5 gold</p>
-        <button (click)="clickToFarm(userId, 0)" class="btn btn-success farm form-control">Farm!</button>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="gold-box text-center">
-        <h3>Cave</h3>
-        <p>Earns 5-10 gold</p>
-        <button (click)="clickToCave(userId, 0)" class="btn btn-success cave form-control">Cave!</button>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="gold-box text-center">
-        <h3>House</h3>
-        <p>Earns 7-15 gold</p>
-        <button (click)="clickToHouse(userId, 0)" class="btn btn-success house form-control">House!</button>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="gold-box text-center">
-        <h3>Casino</h3>
-        <p>Earns or lose up to 100 gold</p>
-        <button (click)="clickToCasino(userId, 0)" class="btn btn-success casino form-control">Casino!</button>
+        <button [disabled]="!note || note.length <= 3" (click)="createNote()" class="btn btn-success float-right">Add Note</button>
+
+        <div class="clearfix"></div>
       </div>
     </div>
   </div>
-
   <div class="row">
     <div class="col-12">
-      <div class="adventure-log">
-        <h1>Adventure Log</h1>
-        <div *ngFor="let x of reversedLogs" class="logs">
-          <p>{{x}}</p>
+      <div class="notes">
+        <div class="each-note" *ngFor="let x of noteData.data">
+          <p class="text-right">{{x.createdAt | date:'medium'}}</p>
+          <p>{{x.note}}</p>
+
+          <!--<button (click)="delete(x._id)" class="btn btn-danger">Delete</button>-->
         </div>
       </div>
     </div>

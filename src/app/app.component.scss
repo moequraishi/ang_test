@@ -1,25 +1,52 @@
 .container {
-  padding-top: 30px;
-}
-.row {
-  margin-bottom: 20px;
-}
-.stats-row {
-  .gold-box{
-    border: 2px solid #000;
-    padding: 10px;
-  }
-  .btn-success {
-    border-radius: 0;
-  }
-}
-.adventure-log {
+  margin-top: 50px;
+  background: #e3e3e3;
   border: 2px solid #000000;
-  min-height: 300px;
-  max-height: 300px;
-  padding: 10px 20px;
-  overflow: scroll;
-  .logs{
 
+  .row {
+    margin-bottom: 20px;
   }
+
+  .note-box {
+    border: 2px solid #000000;
+    background: #ffffff;
+    padding: 10px;
+
+    input.form-control{
+      display: inline-block;
+      width: 60%;
+      margin-right: 10px;
+    }
+    label {
+      margin-right: 10px;
+    }
+
+    @media screen and (max-width: 768px) {
+      input.form-control {
+        width: 100%;
+        margin-bottom: 10px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  .notes {
+    border: 2px solid #000000;
+    background: #ffffff;
+    padding: 10px;
+    max-height: 600px;
+    overflow-y: scroll;
+
+    .each-note {
+      border: 2px solid #000000;
+      background: #ffffff;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
 }
