@@ -1,31 +1,15 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h1>{{title}}</h1>
-      <br />
-      <div class="note-box">
-        <div class="msg" *ngIf="message">
-          <p>{{message}}</p>
-        </div>
-        <label for="note">Note:</label>
-        <input [(ngModel)]="note" required minlength="4" class="form-control" type="text" name="note" id="note">
-
-        <button [disabled]="!note || note.length <= 3" (click)="createNote()" class="btn btn-success float-right">Add Note</button>
-
-        <div class="clearfix"></div>
-      </div>
+  <div class="wrapper">
+    <div class="links">
+      <h1>PPM - Project Product Management</h1>
+      <ul>
+        <li [routerLinkActiveOptions]="{ exact: true }" routerLink="" routerLinkActive="active">Home</li>
+        <li routerLink="products" routerLinkActive="active">Product List</li>
+        <li routerLink="product/new" routerLinkActive="active">Product Creation</li>
+      </ul>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <div class="notes">
-        <div class="each-note" *ngFor="let x of noteData.data">
-          <p class="text-right">{{x.createdAt | date:'medium'}}</p>
-          <p>{{x.note}}</p>
-
-          <!--<button (click)="delete(x._id)" class="btn btn-danger">Delete</button>-->
-        </div>
-      </div>
+    <div class="routes-view">
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

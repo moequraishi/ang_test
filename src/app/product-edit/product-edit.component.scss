@@ -1,0 +1,34 @@
+.create-form {
+  display: block;
+  margin: 0 auto;
+  max-width: 600px;
+  .form-group {
+    margin-bottom: 15px;
+    label{
+      display: block;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    input {
+      width: 100%;
+      min-height: 30px;
+      border: 1px solid #dadada;
+      text-indent: 5px;
+    }
+  }
+}
+.submit-btn,
+.delete-btn{
+  border: none;
+  font-size: 1.3rem;
+  color: #ffffff;
+  width: 50%;
+  min-height: 50px;
+  cursor: pointer;
+}
+.submit-btn{
+  background: #0075c9;
+}
+.delete-btn {
+  background: #e74c3c;
+}

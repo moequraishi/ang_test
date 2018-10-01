@@ -8,15 +8,18 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  create(data) {
+  new(data) {
     return this.http.post('/new', data);
   }
-
-  get() {
-    return this.http.get('/notes');
+  getAll() {
+    return this.http.get('/products');
   }
-
-  // In case of false data only
+  getSingle(id) {
+    return this.http.get('/edit/' + id);
+  }
+  update(id, data) {
+    return this.http.post('/edit/' + id, data);
+  }
   delete(id) {
     return this.http.post('/remove/' + id, false);
   }
